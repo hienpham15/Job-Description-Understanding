@@ -350,3 +350,216 @@ JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, l
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1655479056736	geckodriver	INFO	Listening on 127.0.0.1:51891
+1655479056740	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofilewcd2PV"
+1655479057272	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilewcd2PV/search.json.mozlz4", (void 0)))
+1655479058561	Marionette	INFO	Listening on port 38439
+1655479058658	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://fr.indeed.com/viewjob?viewtype=embedded&jk=42ca2e270d024eee&from=vjs&tk=1g5p3rguh2ehc000&hidecmpheader=0&topwindowlocation=%2Femplois%3Fq%3DData%2520Engineer%26l%3D%25C3%258Ele-de-France%26rbl%3DFontenay-aux-Roses.html%26start%3D150%26vjk%3D42ca2e270d024eee, line 36: TypeError: parent is null
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: r is undefined
+JavaScript error: , line 0: uncaught exception: Object
+1655479121089	geckodriver	INFO	Listening on 127.0.0.1:51569
+1655479121092	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofilerD8miI"
+1655479121596	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilerD8miI/search.json.mozlz4", (void 0)))
+1655479123072	Marionette	INFO	Listening on port 41003
+1655479123114	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+1655479125817	Marionette	INFO	Stopped listening on port 41003
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655479205292	geckodriver	INFO	Listening on 127.0.0.1:48431
+1655479205296	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofileuPGguk"
+1655479205820	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileuPGguk/search.json.mozlz4", (void 0)))
+1655479207205	Marionette	INFO	Listening on port 42881
+1655479207339	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+1655479210116	Marionette	INFO	Stopped listening on port 42881
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655479290570	geckodriver	INFO	Listening on 127.0.0.1:43299
+1655479290573	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofileSuoMTo"
+1655479291104	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileSuoMTo/search.json.mozlz4", (void 0)))
+1655479292574	Marionette	INFO	Listening on port 41697
+1655479292590	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: AbortError: The operation was aborted. 
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: r is undefined
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+1655479305781	Marionette	INFO	Stopped listening on port 38439
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655479306965	Marionette	INFO	Stopped listening on port 41697
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655732516520	geckodriver	INFO	Listening on 127.0.0.1:39491
+1655732517465	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofilez0S8vf"
+1655732518145	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilez0S8vf/search.json.mozlz4", (void 0)))
+1655732519761	Marionette	INFO	Listening on port 39797
+1655732519855	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1655732523514	Marionette	INFO	Stopped listening on port 39797
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655732846861	geckodriver	INFO	Listening on 127.0.0.1:55059
+1655732846865	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofile6nyJrm"
+1655732847369	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile6nyJrm/search.json.mozlz4", (void 0)))
+1655732848663	Marionette	INFO	Listening on port 39101
+1655732848683	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1655732851361	Marionette	INFO	Stopped listening on port 39101
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655733736828	geckodriver	INFO	Listening on 127.0.0.1:42273
+1655733736831	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofilemIqeIk"
+1655733737315	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilemIqeIk/search.json.mozlz4", (void 0)))
+1655733738659	Marionette	INFO	Listening on port 46607
+1655733738751	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+1655733744367	Marionette	INFO	Stopped listening on port 46607
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655733840357	geckodriver	INFO	Listening on 127.0.0.1:52477
+1655733840361	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofileu9Q9mE"
+1655733840867	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileu9Q9mE/search.json.mozlz4", (void 0)))
+1655733842221	Marionette	INFO	Listening on port 38563
+1655733842277	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+1655733848391	Marionette	INFO	Stopped listening on port 38563
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655733963109	geckodriver	INFO	Listening on 127.0.0.1:48287
+1655733963112	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofileHL8iFL"
+1655733963661	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileHL8iFL/search.json.mozlz4", (void 0)))
+1655733965294	Marionette	INFO	Listening on port 43765
+1655733965330	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: AbortError: The operation was aborted. 
+JavaScript error: , line 0: AbortError: The operation was aborted. 
+1655733968269	Marionette	INFO	Stopped listening on port 43765
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655734038985	geckodriver	INFO	Listening on 127.0.0.1:50331
+1655734038988	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofile5WzlIS"
+1655734039491	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile5WzlIS/search.json.mozlz4", (void 0)))
+1655734040919	Marionette	INFO	Listening on port 38623
+1655734041002	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: r is undefined
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: r is undefined
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/mosaic-provider-company-info/dist/c6a02a7d11560a932403/js/CompanyInfoSalary-client.js?1, line 2: ChunkLoadError: Loading chunk 326 failed.
+(error: https://d3fw5vlhllyvee.cloudfront.net/mosaic-provider-company-info/dist/15b8cadbbd3a57239a1d/js/326.js)
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: , line 0: uncaught exception: undefined
+1655734052965	Marionette	INFO	Stopped listening on port 38623
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655734888673	geckodriver	INFO	Listening on 127.0.0.1:57519
+1655734888676	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofileGJOjmB"
+1655734889193	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileGJOjmB/search.json.mozlz4", (void 0)))
+1655734890596	Marionette	INFO	Listening on port 43229
+1655734890696	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+1655734893562	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1655734893562	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1655734893577	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1655734893578	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1655734893578	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/mosaic-provider-company-info/dist/c6a02a7d11560a932403/js/CompanyInfoSalary-client.js?1, line 2: ChunkLoadError: Loading chunk 326 failed.
+(error: https://d3fw5vlhllyvee.cloudfront.net/mosaic-provider-company-info/dist/15b8cadbbd3a57239a1d/js/326.js)
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/mosaic-provider-company-info/dist/c6a02a7d11560a932403/js/CompanyInfoSalary-client.js?1, line 2: ChunkLoadError: Loading chunk 326 failed.
+(error: https://d3fw5vlhllyvee.cloudfront.net/mosaic-provider-company-info/dist/15b8cadbbd3a57239a1d/js/326.js)
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: r is undefined
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: AbortError: The operation was aborted. 
+JavaScript error: , line 0: AbortError: The operation was aborted. 
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+1655734960285	Marionette	INFO	Stopped listening on port 43229
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655734963533	geckodriver	INFO	Listening on 127.0.0.1:55759
+1655734963536	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofile6xLzkh"
+1655734964076	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile6xLzkh/search.json.mozlz4", (void 0)))
+1655734965399	Marionette	INFO	Listening on port 32979
+1655734965454	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+JavaScript error: , line 0: AbortError: The operation was aborted. 
+JavaScript error: , line 0: AbortError: The operation was aborted. 
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+1655734970939	Marionette	INFO	Stopped listening on port 32979
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1655734993017	geckodriver	INFO	Listening on 127.0.0.1:52819
+1655734993020	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "-no-remote" "-profile" "/tmp/rust_mozprofile1t3SJy"
+1655734993497	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile1t3SJy/search.json.mozlz4", (void 0)))
+1655734994923	Marionette	INFO	Listening on port 43511
+1655734994938	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/PartitioningExceptionListService.jsm, line 69: NS_ERROR_MALFORMED_URI: Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIPartitioningExceptionListObserver.onExceptionListUpdate]
+JavaScript error: https://d3fw5vlhllyvee.cloudfront.net/one-trust/dist/2f3f96cac62d4d3a56d40e29ec736441/indeed/scripttemplates/6.30.0/otBannerSdk.js, line 7: TypeError: this.selector is null
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1655735000657	Marionette	INFO	Stopped listening on port 43511
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
