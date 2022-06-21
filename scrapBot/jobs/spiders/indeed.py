@@ -48,30 +48,62 @@ class IndeedSpider(scrapy.Spider):
 #             if jd_page is not None:
 #                 yield response.follow(jd_page, callback=self.parse_jd, cb_kwargs=posting)
 # =============================================================================
-    def parse(self, response):
-        # Use headless option and Firefox browser as the driver
+    def __init__(self):
         options = webdriver.FirefoxOptions()
         options.add_argument("headless")
-        driver = webdriver.Firefox(desired_capabilities=options.to_capabilities())
+        self.driver = webdriver.Firefox(desired_capabilities=options.to_capabilities())
+        
+    
+    def parse_jd(self, jd_link):
+        self.driver.get(jd_link)
+        self.driver.implicitly_wait(10)
+        
+        wait = WebDriverWait(self.driver, 5)
+        job_description = self.driver.find_element_by_id("jobDescriptionText")
+        #print('JD: ', job_description.text)
+        #self.driver.quit()
+        return job_description.text
         
         
-        driver.get("https://fr.indeed.com/jobs?q=Data%20Engineer&l=%C3%8Ele-de-France&rbl=Fontenay-aux-Roses.html&start=150&vjk=42ca2e270d024eee")
         
-        driver.implicitly_wait(10)
+    def parse(self, response):
+        # Use headless option and Firefox browser as the driver
+# =============================================================================
+#         options = webdriver.FirefoxOptions()
+#         options.add_argument("headless")
+#         driver = webdriver.Firefox(desired_capabilities=options.to_capabilities())
+# =============================================================================
+          
+        self.driver.get("https://fr.indeed.com/jobs?q=Data%20Engineer&l=%C3%8Ele-de-France&rbl=Fontenay-aux-Roses.html&start=150&vjk=42ca2e270d024eee")
         
-        wait = WebDriverWait(driver, 5)
+        self.driver.implicitly_wait(10)
         
-        job_titles = driver.find_elements_by_class_name("jobTitle")
-        companies = driver.find_elements_by_class_name("companyName")
+        wait = WebDriverWait(self.driver, 5)
+        
+        job_titles = self.driver.find_elements_by_class_name("jobTitle")
+        companies = self.driver.find_elements_by_class_name("companyName")
+        #jd_links = self.driver.find_elements_by_class_name("jcs-JobTitle")
+        # class="jcs-JobTitle" with attribute href => follow href to get detail job Description
         #descriptions = driver.find_elements_by_id("jobDescriptionText")
         
+        listings = self.driver.find_elements_by_class_name("tapItem")
+        
+        for item in listings:
+            job_title = item.find_element_by_class_name("jobTitle")
+            company = item.find_element_by_class_name("companyName")
+            location = item.find_element_by_class_name("companyLocation")
+            summary = item.find_element_by_class_name("job-snippet")
+            
+            posting = {"job_title": job_title, "summary": summary, "company": company, "location": location}
+        
         for i in range(len(job_titles)):
+            
             yield {
                 "Company" : companies[i].text,
-                "Job Title" : job_titles[i].text}
-                #"Job Description" : descriptiopn}
+                "Job Title" : job_titles[i].text,}
+                #"Job Description" : self.parse_jd(jd_links[i].get_attribute('href'))}
             
-        driver.quit()
+        self.driver.quit()
         
 
 # =============================================================================
