@@ -49,21 +49,25 @@ class IndeedSpider(scrapy.Spider):
 #                 yield response.follow(jd_page, callback=self.parse_jd, cb_kwargs=posting)
 # =============================================================================
     def __init__(self):
-        options = webdriver.FirefoxOptions()
-        options.add_argument("headless")
-        self.driver = webdriver.Firefox(desired_capabilities=options.to_capabilities())
+        self.options = webdriver.FirefoxOptions()
+        self.options.add_argument("headless")
+        self.driver = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
         
     
-    def parse_jd(self, jd_link):
-        self.driver.get(jd_link)
-        self.driver.implicitly_wait(10)
+    def parse_jd(self, jd_link, **posting):
+        driver_cb = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
+        driver_cb.get(jd_link.url)
+        print("jd link:", jd_link.url)
+        driver_cb.implicitly_wait(10)
         
-        wait = WebDriverWait(self.driver, 5)
-        job_description = self.driver.find_element_by_id("jobDescriptionText")
-        #print('JD: ', job_description.text)
-        #self.driver.quit()
-        return job_description.text
-        
+        wait = WebDriverWait(driver_cb, 5)
+        job_description = driver_cb.find_element_by_id("jobDescriptionText")
+        print('Job Description: ', job_description.text)
+        #driver_cb.quit()
+        posting.update({"job description": job_description.text})
+        print("posting_final:", posting)
+        yield posting
+        driver_cb.quit()
         
         
     def parse(self, response):
@@ -89,19 +93,30 @@ class IndeedSpider(scrapy.Spider):
         listings = self.driver.find_elements_by_class_name("tapItem")
         
         for item in listings:
+            print("item:", item)
             job_title = item.find_element_by_class_name("jobTitle")
+            print("Job Title:", job_title.text)
             company = item.find_element_by_class_name("companyName")
             location = item.find_element_by_class_name("companyLocation")
             summary = item.find_element_by_class_name("job-snippet")
             
-            posting = {"job_title": job_title, "summary": summary, "company": company, "location": location}
-        
-        for i in range(len(job_titles)):
-            
-            yield {
-                "Company" : companies[i].text,
-                "Job Title" : job_titles[i].text,}
-                #"Job Description" : self.parse_jd(jd_links[i].get_attribute('href'))}
+            posting = {"job_title": job_title.text, "summary": summary.text, "company": company.text, "location": location.text}
+            print("posting:", posting)
+            jd_page = item.find_element_by_class_name("jcs-JobTitle")
+            if jd_page is not None:
+                jd_link = jd_page.get_attribute("href")
+                print("Call back using href link...")
+                #print("jd link:", jd_link.url)
+                yield response.follow(jd_link, callback=self.parse_jd, cb_kwargs=posting)
+                
+# =============================================================================
+#         for i in range(len(job_titles)):
+#             
+#             yield {
+#                 "Company" : companies[i].text,
+#                 "Job Title" : job_titles[i].text,}
+#                 "Job Description" : self.parse_jd(jd_links[i].get_attribute('href'))}
+# =============================================================================
             
         self.driver.quit()
         
