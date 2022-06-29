@@ -53,7 +53,9 @@ class RelevanceOut(BaseModel):
     score: float
 
 
-app = FastAPI()
+app = FastAPI(title="Job Relevance Evaluation API",
+              description="API for evaluating the relevancy of a Job Offer using ML")
+
 @app.get("/")
 def root():
     return {"Message": "model API ready to deploy"}
