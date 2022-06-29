@@ -8,10 +8,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-job_titles = ["Data Engineer",
-              "Data Scientist",
-              "Data Analyst",
-              "Machine Learning Engineer"]
+#job_titles = ["Data Engineer", "Data Scientist", "Data Analyst", "Machine Learning Engineer"]
+job_titles = ["Data Engineer"]
 regions = ["Île-de-France"]
 villes = ["Fontenay-aux-Roses"]
 urls = []
@@ -30,6 +28,27 @@ class IndeedSpider(scrapy.Spider):
         self.options.add_argument("--headless")
         self.page_driver = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
 
+    def start_requests(self):
+        for url in self.start_urls:
+            i = 0
+            while True:
+                url_page = url + '&start=' + str(i*10)
+                i += 1
+
+                self.page_driver.get(url_page)
+                next_page = self.page_driver.find_element_by_xpath("//a[@aria-label='Suivant']")
+
+                if next_page is not None:
+                    yield scrapy.Request(url_page,
+                                         callback=self.parse)
+                else:
+                    break
+# =============================================================================
+#             for i in range (0, 3):
+#                 url_page = url + '&start=' + str(i*10)
+#                 yield scrapy.Request(url_page,
+#                                      callback=self.parse)
+# =============================================================================
 
     def parse_jd(self, jd_link, **posting):
         driver_cb = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
@@ -49,18 +68,21 @@ class IndeedSpider(scrapy.Spider):
         yield posting
         driver_cb.quit()
 
-
-    def parse(self, response):
+    #def parse_page(self, response):
+    def parse(self, page_link):
         # Use headless option and Firefox browser as the driver
         driver = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
 
-        # driver.get("https://fr.indeed.com/jobs?q=Data%20Engineer&l=%C3%8Ele-de-France&rbl=Fontenay-aux-Roses.html&start=150&vjk=42ca2e270d024eee")
-        driver.get("https://fr.indeed.com/emplois?q=Data Engineer&l=Île-de-France&rbl=Fontenay-aux-Roses.html")
+        # driver.get("https://fr.indeed.com/emplois?q=Data Engineer&l=Île-de-France&rbl=Fontenay-aux-Roses.html")
+        driver.get(page_link.url)
 
         driver.implicitly_wait(10)
         wait = WebDriverWait(driver, 5)
         wait.until(EC.presence_of_element_located((By.CLASS_NAME, "tapItem")))
 
+        current_page = driver.find_element_by_xpath('//b[@aria-current="true"]')
+        print("Page: ", current_page.text)
+        print("Page link: ", page_link.url)
 
         listings = driver.find_elements_by_class_name("tapItem")
 
@@ -73,7 +95,9 @@ class IndeedSpider(scrapy.Spider):
 
             jd_page = item.find_element_by_class_name("jcs-JobTitle")
             job_id = jd_page.get_attribute("data-jk")
-            posting = {"job id": job_id,
+            posting = {"url": page_link.url,
+                       "page": current_page.text,
+                       "job id": job_id,
                        "job_title": job_title.text,
                        "company": company.text,
                        "location": location.text,
@@ -81,19 +105,13 @@ class IndeedSpider(scrapy.Spider):
 
             if jd_page is not None:
                 jd_link = jd_page.get_attribute("href")
-                yield response.follow(jd_link,
-                                      callback=self.parse_jd,
-                                      cb_kwargs=posting)
-
+                #yield response.follow(jd_link,
+                #                      callback=self.parse_jd,
+                #                      cb_kwargs=posting)
+                yield scrapy.http.Request(jd_link,
+                                          callback=self.parse_jd,
+                                          cb_kwargs=posting)
         time.sleep(5)
-
-        xp_next = driver.find_element_by_xpath("//a[@aria-label='Suivant']")
-        if xp_next is not None:
-            current_page = driver.find_element_by_xpath('//b[@aria-current="true"]')
-            print("Page: ", current_page.text)
-            next_page_href = xp_next.get_attribute("href")
-            print("Next page links:", next_page_href)
-            next_page_url = response.urljoin(next_page_href)
-            yield scrapy.http.Request(url=next_page_url, callback=self.parse)
-
         driver.quit()
+
+        
