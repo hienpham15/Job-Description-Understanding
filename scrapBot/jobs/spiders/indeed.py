@@ -114,4 +114,13 @@ class IndeedSpider(scrapy.Spider):
         time.sleep(5)
         driver.quit()
 
-        
+"""
+TODO:
+    - Configure the scrap bot to avoid timeout/blocking:
+        + Proxies
+        + IP Rotation
+        + User-agent
+        + Make scraping slower, change patterrn
+        + Captcha solving services
+    - Move the scraping results to a database engine/Data warehouse.
+"""     
