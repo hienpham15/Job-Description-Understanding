@@ -62,7 +62,12 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
+ITEM_PIPELINES = ['stack.pipelines.MongoDBPipeline', ]
+
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "indeed"
+MONGODB_COLLECTION = "jd_raw_data"
 #    'jobs.pipelines.JobsPipeline': 300,
 #}
 
