@@ -23,32 +23,35 @@ class IndeedSpider(scrapy.Spider):
     allowed_domains = ['indeed.com']
     start_urls = urls
 
-    def __init__(self):
+    def __init__(self, starting_page=0):
         self.options = webdriver.FirefoxOptions()
         self.options.add_argument("--headless")
         self.page_driver = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
+        self.s_page = int(starting_page)
 
     def start_requests(self):
-        for url in self.start_urls:
-            i = 0
-            while True:
-                url_page = url + '&start=' + str(i*10)
-                i += 1
-
-                self.page_driver.get(url_page)
-                next_page = self.page_driver.find_element_by_xpath("//a[@aria-label='Suivant']")
-
-                if next_page is not None:
-                    yield scrapy.Request(url_page,
-                                         callback=self.parse)
-                else:
-                    break
 # =============================================================================
-#             for i in range (0, 3):
+#             i = 0
+#             while i < 5:
 #                 url_page = url + '&start=' + str(i*10)
-#                 yield scrapy.Request(url_page,
-#                                      callback=self.parse)
+#                 i += 1
+# 
+#                 self.page_driver.get(url_page)
+#                 next_page = self.page_driver.find_element_by_xpath("//a[@aria-label='Suivant']")
+# 
+#                 if next_page is not None:
+#                     yield scrapy.Request(url_page,
+#                                          callback=self.parse)
+#                 else:
+#                     break
 # =============================================================================
+        for url in self.start_urls:
+            for i in range(self.s_page, self.s_page + 3):
+                print("starting at page: ", i)
+                url_page = url + '&start=' + str(i*10)
+                yield scrapy.Request(url_page,
+                                     callback=self.parse)
+
 
     def parse_jd(self, jd_link, **posting):
         driver_cb = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
@@ -116,6 +119,9 @@ class IndeedSpider(scrapy.Spider):
 
 """
 TODO:
+    - Connect scrapy to MongoDB
+        + Define a method to process the parsed data.
+    - Schedule the spider to crawl every 1 hour with 3 pages
     - Configure the scrap bot to avoid timeout/blocking:
         + Proxies
         + IP Rotation
