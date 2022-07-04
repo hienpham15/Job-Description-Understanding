@@ -1,5 +1,6 @@
 beautifulsoup4=4.11.1=py39h06a4308_0
 curl=7.82.0=h7f8727e_0
+dnspython=1.16
 docker-compose=1.29.2=py39hf3d152e_1
 docker-py=5.0.3=py39hf3d152e_2
 docker-pycreds=0.4.0=py_0
@@ -10,6 +11,7 @@ flake8=3.9.2=pyhd3eb1b0_0
 flask=1.1.2=pyhd3eb1b0_0
 pdfminer-six=20220524=pypi_0
 pillow=9.0.1=py39h22f2fdc_0
+pymongo=3.12
 python=3.9.12=h12debd9_0
 pyyaml=6.0=py39h7f8727e_1
 regex=2022.3.15=py39h7f8727e_0
