@@ -119,9 +119,10 @@ class IndeedSpider(scrapy.Spider):
 
 """
 TODO:
-    - Connect scrapy to MongoDB
-        + Define a method to process the parsed data.
-    - Schedule the spider to crawl every 1 hour with 3 pages
+    - Deploy on cloud
+        + Eggify the spider
+        + Deploy to Scrapyd server
+        + Deploy to Heroku cloud
     - Configure the scrap bot to avoid timeout/blocking:
         + Proxies
         + IP Rotation
