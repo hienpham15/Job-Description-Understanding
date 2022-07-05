@@ -23,7 +23,9 @@ class IndeedSpider(scrapy.Spider):
     allowed_domains = ['indeed.com']
     start_urls = urls
 
-    def __init__(self, starting_page=0):
+    def __init__(self, name=None, starting_page=0, **kwargs):
+        kwargs.pop('_job')
+        super(IndeedSpider, self).__init__(name, **kwargs)
         self.options = webdriver.FirefoxOptions()
         self.options.add_argument("--headless")
         self.page_driver = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
