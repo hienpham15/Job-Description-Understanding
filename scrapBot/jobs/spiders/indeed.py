@@ -24,7 +24,7 @@ class IndeedSpider(scrapy.Spider):
     start_urls = urls
 
     def __init__(self, name=None, starting_page=0, **kwargs):
-        kwargs.pop('_job')
+        #kwargs.pop('_job')
         super(IndeedSpider, self).__init__(name, **kwargs)
         self.options = webdriver.FirefoxOptions()
         self.options.add_argument("--headless")
@@ -121,15 +121,11 @@ class IndeedSpider(scrapy.Spider):
 
 """
 TODO:
-    - Deploy on cloud
-        + Eggify the spider
-        + Deploy to Scrapyd server
-        + Deploy to Heroku cloud
+    - Create a scheduler
     - Configure the scrap bot to avoid timeout/blocking:
         + Proxies
         + IP Rotation
         + User-agent
         + Make scraping slower, change patterrn
         + Captcha solving services
-    - Move the scraping results to a database engine/Data warehouse.
 """     
