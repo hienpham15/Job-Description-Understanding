@@ -8,45 +8,48 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-#job_titles = ["Data Engineer", "Data Scientist", "Data Analyst", "Machine Learning Engineer"]
-job_titles = ["Data Engineer"]
-regions = ["Île-de-France"]
-villes = ["Fontenay-aux-Roses"]
-urls = []
-
-for (job_title, region, ville) in product(job_titles, regions, villes):
-    urls.append(f"https://fr.indeed.com/emplois?q={' '.join(job_title.split())}&l={region}&rbl={ville}.html")
-
+# =============================================================================
+# job_titles = ["Data Engineer"]
+# regions = ["Île-de-France"]
+# villes = ["Fontenay-aux-Roses"]
+# language = 'fr'
+# urls = []
+# 
+# for (job_title, region, ville) in product(job_titles, regions, villes):
+#     if language == 'fr':
+#         urls.append(f"https://fr.indeed.com/emplois?q=\
+#                     {' '.join(job_title.split())}&l={region}&rbl={ville}.html")
+#     elif language == 'en':
+#         urls.append(f"https://www.indeed.com/jobs?q=\
+#                     {' '.join(job_title.split())}&l={region}.html")
+# 
+# =============================================================================
 
 class IndeedSpider(scrapy.Spider):
     name = 'indeed'
     allowed_domains = ['indeed.com']
-    start_urls = urls
 
-    def __init__(self, name=None, starting_page=0, **kwargs):
-        #kwargs.pop('_job')
+    def __init__(self,
+                 name=None,
+                 starting_page=0,
+                 language='fr',
+                 job_title='Data Engineer',
+                 region='Île-de-France',
+                 **kwargs):
         super(IndeedSpider, self).__init__(name, **kwargs)
         self.options = webdriver.FirefoxOptions()
         self.options.add_argument("--headless")
         self.page_driver = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
         self.s_page = int(starting_page)
+        self.start_urls = []
+        if language == 'fr':
+            self.start_urls.append(f"https://fr.indeed.com/emplois?q=\
+                                   {' '.join(job_title.split())}&l={region}.html")
+        elif language == 'en':
+            self.start_urls.append(f"https://www.indeed.com/jobs?q=\
+                                   {' '.join(job_title.split())}&l={region}.html")
 
     def start_requests(self):
-# =============================================================================
-#             i = 0
-#             while i < 5:
-#                 url_page = url + '&start=' + str(i*10)
-#                 i += 1
-# 
-#                 self.page_driver.get(url_page)
-#                 next_page = self.page_driver.find_element_by_xpath("//a[@aria-label='Suivant']")
-# 
-#                 if next_page is not None:
-#                     yield scrapy.Request(url_page,
-#                                          callback=self.parse)
-#                 else:
-#                     break
-# =============================================================================
         for url in self.start_urls:
             for i in range(self.s_page, self.s_page + 3):
                 print("starting at page: ", i)
@@ -54,8 +57,9 @@ class IndeedSpider(scrapy.Spider):
                 yield scrapy.Request(url_page,
                                      callback=self.parse)
 
-
-    def parse_jd(self, jd_link, **posting):
+    def parse_jd(self,
+                 jd_link,
+                 **posting):
         driver_cb = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
         driver_cb.get(jd_link.url)
         # print("jd link:", jd_link.url)
@@ -73,12 +77,10 @@ class IndeedSpider(scrapy.Spider):
         yield posting
         driver_cb.quit()
 
-    #def parse_page(self, response):
     def parse(self, page_link):
         # Use headless option and Firefox browser as the driver
         driver = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
 
-        # driver.get("https://fr.indeed.com/emplois?q=Data Engineer&l=Île-de-France&rbl=Fontenay-aux-Roses.html")
         driver.get(page_link.url)
 
         driver.implicitly_wait(10)
@@ -87,7 +89,6 @@ class IndeedSpider(scrapy.Spider):
 
         current_page = driver.find_element_by_xpath('//b[@aria-current="true"]')
         print("Page: ", current_page.text)
-        print("Page link: ", page_link.url)
 
         listings = driver.find_elements_by_class_name("tapItem")
 
@@ -110,9 +111,6 @@ class IndeedSpider(scrapy.Spider):
 
             if jd_page is not None:
                 jd_link = jd_page.get_attribute("href")
-                #yield response.follow(jd_link,
-                #                      callback=self.parse_jd,
-                #                      cb_kwargs=posting)
                 yield scrapy.http.Request(jd_link,
                                           callback=self.parse_jd,
                                           cb_kwargs=posting)
