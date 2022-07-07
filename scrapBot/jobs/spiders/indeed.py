@@ -1,6 +1,8 @@
 import scrapy
 import logging
 import time
+import os
+import sys
 from itertools import product
 
 from selenium import webdriver
@@ -8,22 +10,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# =============================================================================
-# job_titles = ["Data Engineer"]
-# regions = ["Île-de-France"]
-# villes = ["Fontenay-aux-Roses"]
-# language = 'fr'
-# urls = []
-# 
-# for (job_title, region, ville) in product(job_titles, regions, villes):
-#     if language == 'fr':
-#         urls.append(f"https://fr.indeed.com/emplois?q=\
-#                     {' '.join(job_title.split())}&l={region}&rbl={ville}.html")
-#     elif language == 'en':
-#         urls.append(f"https://www.indeed.com/jobs?q=\
-#                     {' '.join(job_title.split())}&l={region}.html")
-# 
-# =============================================================================
 
 class IndeedSpider(scrapy.Spider):
     name = 'indeed'
@@ -37,29 +23,40 @@ class IndeedSpider(scrapy.Spider):
                  region='Île-de-France',
                  **kwargs):
         super(IndeedSpider, self).__init__(name, **kwargs)
+        
+        # self.driver_path = r"./vendor/geckodriver"
         self.options = webdriver.FirefoxOptions()
+        # self.options.binary_location = r"./vendor/firefox/firefox"
         self.options.add_argument("--headless")
+# =============================================================================
+#         self.page_driver = webdriver.Firefox(executable_path=self.driver_path,
+#                                              desired_capabilities=self.options.to_capabilities(),
+#                                              options=self.options)
+# =============================================================================
         self.page_driver = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
         self.s_page = int(starting_page)
         self.start_urls = []
         if language == 'fr':
-            self.start_urls.append(f"https://fr.indeed.com/emplois?q=\
-                                   {' '.join(job_title.split())}&l={region}.html")
+            self.start_urls.append(f"https://fr.indeed.com/emplois?q={job_title}&l={region}")
         elif language == 'en':
-            self.start_urls.append(f"https://www.indeed.com/jobs?q=\
-                                   {' '.join(job_title.split())}&l={region}.html")
+            self.start_urls.append(f"https://www.indeed.com/jobs?q={job_title}&l={region}")
 
     def start_requests(self):
         for url in self.start_urls:
             for i in range(self.s_page, self.s_page + 3):
                 print("starting at page: ", i)
-                url_page = url + '&start=' + str(i*10)
+                url_page = url + '&start=' + str(i*10) + ".html"
                 yield scrapy.Request(url_page,
                                      callback=self.parse)
 
     def parse_jd(self,
                  jd_link,
                  **posting):
+# =============================================================================
+#         driver_cb = webdriver.Firefox(executable_path=self.driver_path,
+#                                       desired_capabilities=self.options.to_capabilities(),
+#                                       options=self.options)
+# =============================================================================
         driver_cb = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
         driver_cb.get(jd_link.url)
         # print("jd link:", jd_link.url)
@@ -79,8 +76,12 @@ class IndeedSpider(scrapy.Spider):
 
     def parse(self, page_link):
         # Use headless option and Firefox browser as the driver
+# =============================================================================
+#         driver = webdriver.Firefox(executable_path=self.driver_path,
+#                                    desired_capabilities=self.options.to_capabilities(),
+#                                    options=self.options)
+# =============================================================================
         driver = webdriver.Firefox(desired_capabilities=self.options.to_capabilities())
-
         driver.get(page_link.url)
 
         driver.implicitly_wait(10)
