@@ -38,7 +38,7 @@ import sys
 class MongoDBPipeline:
     collection = 'jds_indeed'
     user_name = 'HienPHAM'
-    password = 'myfamily01060204'
+    password = 'mongodb123456789'
     remote_uri = 'mongodb+srv://' + user_name + ':' + password + \
                  '@jdu-project.nkmrf.mongodb.net/'
     init_db = 'jobs_indeed'
